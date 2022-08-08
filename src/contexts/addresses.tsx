@@ -34,9 +34,10 @@ import { AddressSettings, loadStoredAddressesMetadataOfWallet, storeAddressMetad
 import { NetworkName } from '../utils/settings'
 import { useGlobalContext } from './global'
 
+export type TransactionDirection = 'out' | 'in' | 'pending'
 export type TransactionType = 'consolidation' | 'transfer' | 'sweep'
 
-type SimpleTx = {
+export interface SimpleTx {
   txId: string
   fromAddress: string
   toAddress: string
@@ -90,10 +91,6 @@ export class Address {
 
   getName() {
     return this.settings.label || this.shortHash
-  }
-
-  getLabelName(showStar = true) {
-    return `${this.settings.isMain && showStar ? '★ ' : ''}${this.getName()}`
   }
 
   addPendingTransaction(transaction: SimpleTx) {

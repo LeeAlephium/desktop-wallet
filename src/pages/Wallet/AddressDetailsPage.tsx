@@ -86,7 +86,7 @@ const AddressDetailsPage = () => {
             {t`Address details`} {address.settings.isMain && !isPassphraseUsed && <MainAddressLabelStyled />}
           </PageH1Styled>
           {address.settings.label && (
-            <AddressBadgeStyled color={address.settings.color} addressName={address.getLabelName()} />
+            <AddressBadgeStyled color={address.settings.color} addressName={address.getName()} />
           )}
           <OptionsButton
             transparent
@@ -114,7 +114,7 @@ const AddressDetailsPage = () => {
           <DataListCell>Label</DataListCell>
           <DataListCell>
             {address.settings.label ? (
-              <AddressBadge truncate color={address.settings.color} addressName={address.getLabelName()} />
+              <AddressBadge truncate color={address.settings.color} addressName={address.getName()} />
             ) : (
               '-'
             )}
